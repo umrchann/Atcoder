@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#define f(i,j,k) for(long long i=j;i<k;i++)
+#define f2(i,j,k) for(long long i=j;i>=k;i--)
+#define fixed(i) fixed<<setprecision(i)
+#define ll long long 
+#define ld long double 
+using namespace std;
+const long long mod=1e9+7;
+const long long mod2=998244353;
+const long long INF = (1 << 29);
+void chmin(int& a, int b){ if(a > b) a = b; }
+void chmax(int& a, int b){ if(a < b) a = b; }
+using Graph = vector<vector<ll>>; 
+void yn2(ll a){
+    if(a==0){
+        cout<<"Yes"<<endl;
+    }
+    else{
+        cout<<"No"<<endl;
+    }
+}
+void yn(bool a){
+    puts(a?"Yes":"No");
+}
+void YN(bool a){
+    puts(a?"YES":"NO");
+}
+int main(){
+    string s;
+    cin>>s;
+    map<char,ll> cnt;
+    ll big_cnt=0,small_cnt=0;
+    f(i,0,s.size()){
+        cnt[s[i]]++;
+        if(cnt[s[i]]>1){
+            cout<<"No"<<endl;
+            return 0;
+        }
+        if(islower(s[i])){
+            small_cnt++;
+        }
+        else{
+            big_cnt++;
+        }
+    }
+    yn(big_cnt!=0&small_cnt!=0);
+    return 0;
+}
